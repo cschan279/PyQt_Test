@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="indicator">
+    <file>images/R-ori.png</file>
+    <file>images/G-ori.png</file>
+    <file>images/K-ori.png</file>
+  </qresource>
+  <qresource prefix="button">
+    <file>images/Gear.png</file>
+  </qresource>
+</RCC>
