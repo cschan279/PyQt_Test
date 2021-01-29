@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>174</width>
-    <height>86</height>
+    <height>94</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,7 +20,10 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QFrame#frame {
+    background-color: rgb(255, 255, 255); 
+    border: 1px inset black;
+}</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
