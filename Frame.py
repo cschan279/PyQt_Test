@@ -68,15 +68,15 @@ class Ui_Form(object):
         self.horizontalLayout_2.addWidget(self.horizontalSlider)
         self.Box.addLayout(self.horizontalLayout_2)
         self.horizontalLayout_3.addLayout(self.Box)
-        self.label = QtWidgets.QLabel(self.frame)
+        self.Indicator = QtWidgets.QLabel(self.frame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
-        self.label.setSizePolicy(sizePolicy)
-        self.label.setTextFormat(QtCore.Qt.RichText)
-        self.label.setObjectName("label")
-        self.horizontalLayout_3.addWidget(self.label)
+        sizePolicy.setHeightForWidth(self.Indicator.sizePolicy().hasHeightForWidth())
+        self.Indicator.setSizePolicy(sizePolicy)
+        self.Indicator.setTextFormat(QtCore.Qt.RichText)
+        self.Indicator.setObjectName("Indicator")
+        self.horizontalLayout_3.addWidget(self.Indicator)
         self.horizontalLayout.addWidget(self.frame)
 
         self.retranslateUi(Form)
@@ -86,5 +86,5 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.CamLabel.setText(_translate("Form", "CamLabel"))
-        self.label.setText(_translate("Form", "<img src=\":/indicator/images/K-ori.png\"/>"))
+        self.Indicator.setText(_translate("Form", "<img src=\":/indicator/images/K-ori.png\"/>"))
 import resource_rc
