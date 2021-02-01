@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from custom_slider import CustomSlider
 
 
 class Ui_MainWindow(object):
@@ -19,7 +20,8 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.horizontalSlider = QtWidgets.QSlider(self.centralwidget)
+        # self.horizontalSlider = QtWidgets.QSlider(self.centralwidget)
+        self.horizontalSlider = CustomSlider(self.centralwidget)
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider.setObjectName("horizontalSlider")
         self.horizontalLayout.addWidget(self.horizontalSlider)

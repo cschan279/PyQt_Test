@@ -9,10 +9,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
         # uic.loadUi('MainWindow.ui', self)
         self.setupUi(self)
-        self.horizontalSlider.hover.connect(lambda e: self.hover_event(e))
+        self.horizontalSlider.hover_event.connect(lambda e: self.hover_event(e))
+        print()
 
     def hover_event(self, event):
-        print("hover", event)
+        print("hover event", event)
 
 
 def main():
