@@ -12,14 +12,9 @@ class CustomSlider(QtWidgets.QSlider):
 
     def event(self, event):
         if event.type() in [QEvent.HoverEnter, QEvent.HoverLeave, QEvent.HoverMove]:
-            self.hover_event.emit(event.pos().x())
+            value = self.get_value_from_pos(event.pos().x())
+            self.hover_event.emit(value)
         return super().event(event)
-
-    def hover_event_X(self, pos):
-        print("Hover:", pos.x())
-        self.pos = pos.x()
-        return
-
 
     def get_value_from_pos(self, pos):
         range = self.maximum() - self.minimum()

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>807</width>
-    <height>147</height>
+    <height>110</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,30 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QSlider" name="horizontalSlider">
+     <widget class="CustomSlider" name="horizontalSlider">
+      <property name="styleSheet">
+       <string notr="true">QSlider::groove:horizontal { 
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(100, 255, 100, 255));
+	border: 0px solid #424242; 
+	height: 10px; 
+	border-radius: 4px;
+}
+
+QSlider::handle:horizontal { 
+    background-color: blue;
+	border: 0px solid black; 
+	width: 10px; 
+	height: 6px; 
+	line-height: 6px; 
+	margin-top: -2px; 
+	margin-bottom: -2px; 
+	border-radius: 5px; 
+}
+
+QSlider::handle:horizontal:hover { 
+	border-radius: 5px;
+}</string>
+      </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -43,12 +66,19 @@
      <x>0</x>
      <y>0</y>
      <width>807</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CustomSlider</class>
+   <extends>QSlider</extends>
+   <header>customslider.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
-translate = QtCore.QCoreApplication.translate
 from slide_test import Ui_MainWindow
 import sys
+translate = QtCore.QCoreApplication.translate
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -9,11 +9,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
         # uic.loadUi('MainWindow.ui', self)
         self.setupUi(self)
-        self.horizontalSlider.hover_event.connect(lambda e: self.hover_event(e))
+        self.horizontalSlider.hover_event.connect(lambda e: self.slide_event("hover", e))
+        self.horizontalSlider.valueChanged.connect(lambda e: self.slide_event("change", e))
         print()
 
-    def hover_event(self, event):
-        print("hover event", event)
+    def slide_event(self, typ, event):
+        print(f"{typ} event", event)
 
 
 def main():
