@@ -30,10 +30,17 @@ def grid_align(parent):
 
 
 def test_custom_btn(parent):
+    parent.grid_columnconfigure(0, weight=0)
+    parent.grid_columnconfigure(1, weight=1)
+    parent.grid_columnconfigure(2, weight=1)
     btn = ImgButton(parent, img_normal="ball_normal.png",
                     img_hover="ball_hover.png",
                     img_press="ball_press.png")
-    btn.pack()
+    btn.grid(column=0, row=0, sticky="nsew")
+    ball = PhotoImage(file="ball_normal.png")
+    nor_btn = Button(parent, image=ball, borderwidth=0)
+    nor_btn.image = ball
+    nor_btn.grid(column=2, row=0, sticky="nsew")
     return
 
 ################################################

@@ -1,4 +1,9 @@
-from tkinter import Button, Text, PhotoImage
+from tkinter import (Button, Text, PhotoImage,
+                     Scale, Label, Tk)
+
+
+class Indicator(Label):
+    pass
 
 
 class ImgButton(Button):
@@ -43,3 +48,38 @@ class ImgButton(Button):
         self.configure(image=self.image_press)
         self.image = self.image_press
         return
+
+
+class Switch(Scale):
+    def __init__(self, parent, default=0, command=None):
+        self.on_color = "blue"
+        self.off_color = "grey"
+        self.command = command
+        super().__init__(parent, orient="horizontal",
+                         from_=0, to=1, showvalue=0,
+                         fg="white", command=self.execute_)
+        self.set(default)
+        self.bg_from_value()
+        return
+
+    def execute_(self, val):
+        self.bg_from_value()
+        if callable(self.command):
+            self.command(val)
+        return
+
+    def bg_from_value(self):
+        if self.get():
+            self.config(troughcolor=self.on_color)
+        else:
+            self.config(troughcolor=self.off_color)
+        return
+
+
+if __name__ == "__main__":
+    root = Tk()
+    # testText(root)
+    # grid_align(root)
+    scale = Switch(root, command=print)
+    scale.pack()
+    root.mainloop()
