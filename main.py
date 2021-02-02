@@ -1,5 +1,5 @@
 from tkinter import *
-
+from custom_widget import ImgButton
 
 def testText():
     root = Tk()
@@ -26,15 +26,13 @@ def grid_align():
         btn_ls[-1].grid(column=i%3, row=i//3, sticky="nsew")
     root.mainloop()
     return
+
 ##########################################################
 
 
-
-
-
-def button_change_image(parent):
+"""def button_change_image(parent):
     global btn, image_normal
-    btn = Button(root, image=image_normal)
+    btn = Button(root, image=image_normal, borderwidth=0)
     btn.pack()
     btn.bind("<Enter>", hover_btn)
     btn.bind("<Leave>", leave_btn)
@@ -52,7 +50,8 @@ def leave_btn(event):
     print(event)
     btn.configure(image=image_normal)
     btn.image = image_normal
-    return
+    return"""
+
 
 ################################################
 
@@ -61,9 +60,15 @@ if __name__ == "__main__":
     root = Tk()
     # testText()
     # grid_align()
+    """
     image_normal = PhotoImage(file="ball_normal.png")
     image_hover = PhotoImage(file="ball_hover.png")
     image_press = PhotoImage(file="ball_press.png")
     btn = None
     button_change_image(root)
+    """
+    btn = ImgButton(root, img_normal="ball_normal.png",
+                    img_hover="ball_hover.png",
+                    img_press="ball_press.png")
+    btn.pack()
     root.mainloop()
