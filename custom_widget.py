@@ -8,6 +8,16 @@ class Indicator(Label):
 
 class ImgButton(Button):
     def __init__(self, *args, **kwargs):
+        self.init_btn_img(kwargs)
+        super().__init__(image=self.image_normal, borderwidth=0, *args, **kwargs)
+        self.image = self.image_normal
+        self.bind("<Enter>", self.hover_btn)
+        self.bind("<Leave>", self.resume_btn)
+        self.bind("<Button>", self.press_btn)
+        self.bind("<ButtonRelease>", self.resume_btn)
+        return
+
+    def init_btn_img(self, kwargs):
         if 'img_normal' in kwargs:
             self.image_normal = PhotoImage(file=kwargs['img_normal'])
             if 'img_hover' in kwargs:
@@ -23,13 +33,6 @@ class ImgButton(Button):
             kwargs.pop('img_normal')
         else:
             raise Exception("No img_normal")
-        super().__init__(image=self.image_normal, borderwidth=0, *args, **kwargs)
-        self.image = self.image_normal
-        self.bind("<Enter>", self.hover_btn)
-        self.bind("<Leave>", self.resume_btn)
-        self.bind("<Button>", self.press_btn)
-        self.bind("<ButtonRelease>", self.resume_btn)
-        return
 
     def hover_btn(self, event):
         print(event)
@@ -74,6 +77,23 @@ class Switch(Scale):
         else:
             self.config(troughcolor=self.off_color)
         return
+
+
+class FlowLayout(Text):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.configure(state="disabled")
+
+    def add_widgets(self, widgets):
+        self.configure(state="normal")
+        for wid in widgets:
+            self.window_create('insert', window=wid)
+        self.configure(state="disabled")
+
+    def add_widget(self, widget):
+        self.configure(state="normal")
+        self.window_create('insert', window=widget)
+        self.configure(state="disabled")
 
 
 if __name__ == "__main__":
